@@ -1,0 +1,27 @@
+body{
+	margin:0;
+	background-color:skyblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height:100%;
+}
+.form{
+	width:600px;
+	height:600px;
+	background-color: white;
+	position:relative;
+	top:160px;
+	border-radius:20px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+
+}
+input[type=text], input[type=password]{
+	width:400px;
+	height:30px;
+	margin-bottom:15px;
+	text-align: center;	
+}
+
