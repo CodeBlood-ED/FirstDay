@@ -14,10 +14,8 @@ $conn = mysqli_connect($server, $uname, $pass, $db)or die('Server Connection Fai
 				echo 'Email Id Required';
 			}else if(!filter_var($useremail,FILTER_VALIDATE_EMAIL)){
 				echo 'Invalid File Format';
-			}else{
-				$userpassword = $_POST['userpassword'];
-				$userconfirm  = $_POST['userconfirm_password'];
-				if($userpassword == $userconfirm){
+			}
+					$userpassword = $_POST['userpassword'];
 					$salt = 'Username22Sep98';
 					$usernewpassword = hash('gost',$userpassword.$salt);
 					$uppercase = preg_match('@[A-Z]@',$userpassword);
@@ -46,8 +44,11 @@ $conn = mysqli_connect($server, $uname, $pass, $db)or die('Server Connection Fai
 						$q ="INSERT INTO user (useremail, userpassword, usercheckbox, usergender, usernumb, userimage) VALUES ('$useremail','$usernewpassword','$usercheck','$usergender','$usernumb', '$destinationfile')";
 						
 						$query = mysqli_query($conn,$q);
-				}
-			?><!DOCTYPE html>
+					}
+		}
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -65,11 +66,4 @@ $conn = mysqli_connect($server, $uname, $pass, $db)or die('Server Connection Fai
 		<a href="index.php">Login</a>
 	</div>
 </body>
-</html>	<?php
-			}
-			else{
-				echo 'Password Match Failed' ;
-				}
-		}
-		}
-?>
+</html>	
