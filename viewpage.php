@@ -20,12 +20,13 @@
 		$salt = 'Username22Sep98';
 		$password1 = hash('gost',$password.$salt);
 
-		$sql = "SELECT password FROM user where email='$email'";
+		$sql = "SELECT userpassword FROM user where useremail='$email'";
+
 		$qry = mysqli_query($conn,$sql);
 
 		$fetch = mysqli_fetch_array($qry);
 
-		$data = $fetch['password'];
+		$data = $fetch['userpassword'];
 
 		if($data == $password1){
 
@@ -33,7 +34,7 @@
 
 			$qry = mysqli_query($conn,$sql);
 
-			while($resultdisplay = mysqli_fetch_array($result)){
+			while($resultdisplay = mysqli_fetch_array($qry)){
 				?>
 					<body>
 						<tbody>
